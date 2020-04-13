@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="EvolutionOfTrustTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2020-04-13T11:55:08" hostname="Nikhils-MacBook-Pro.local" time="0.003">
+  <properties/>
+  <testcase name="user1AndUser2ShouldCooperate" classname="EvolutionOfTrustTest" time="0.002"/>
+  <testcase name="user1AndUser2ShouldCheat" classname="EvolutionOfTrustTest" time="0.0"/>
+  <testcase name="user1ShouldCheatAndUser2ShouldCooperate" classname="EvolutionOfTrustTest" time="0.0"/>
+  <testcase name="user1ShouldCooperateAndUser2ShouldCheat" classname="EvolutionOfTrustTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
