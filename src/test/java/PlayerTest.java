@@ -6,7 +6,7 @@ public class PlayerTest {
 
     @Test
     public void shouldReturnCooperate() {
-        assertEquals(MoveType.COOPERATE,new Player().makeMove());
+        assertEquals(MoveType.COOPERATE,new Player(MoveType.COOPERATE).makeMove());
     }
 
 }
