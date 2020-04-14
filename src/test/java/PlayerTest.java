@@ -8,4 +8,5 @@ public class PlayerTest {
     public void shouldReturnCooperate() {
         assertEquals(MoveType.COOPERATE,new Player().makeMove());
     }
+
 }

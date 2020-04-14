@@ -11,6 +11,16 @@ public class GameTest {
         Player coolPerson1 = new Player();
         Player coolPerson2 = new Player();
         Game game = new Game(coolPerson1,coolPerson2);
-        assertEquals(new Pair<Integer, Integer>(GameConstant.BOTHCOOPERATE,GameConstant.BOTHCOOPERATE),game.getScore());
+        assertEquals(new Pair<Integer, Integer>(GameConstant.BOTHCOOPERATE,GameConstant.BOTHCOOPERATE),game.getScore(1));
+    }
+
+    @Test
+    public void shouldCheckTotalScoreWhenBothPlayersAreCool() {
+        int numOfRounds = 5;
+        Player coolPerson1 = new Player();
+        Player coolPerson2 = new Player();
+        Game game = new Game(coolPerson1,coolPerson2);
+        assertEquals(new Pair<Integer,Integer>(10,10),game.getScore(numOfRounds));
+        assertEquals(new Pair<Integer,Integer>(10,10),game.getScore(numOfRounds));
     }
 }
