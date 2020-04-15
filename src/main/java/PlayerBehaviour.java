@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public interface PlayerBehaviour {
-    MoveType behaviour();
+    MoveType behaviour() throws IOException;
 }

@@ -1,37 +1,32 @@
 import com.sun.tools.javac.util.Pair;
+import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class GameTest {
 
-    private CooperatePlayerBehaviour cooperatePlayerBehaviour = new CooperatePlayerBehaviour();
-    private CheatPlayerBehaviour cheatPlayerBehaviour = new CheatPlayerBehaviour();
+    private Player player1;
+    private Player player2;
+    private Game game;
 
-    @Test
-    public void shouldCheckThatTheBothPlayersAreCool(){
-        Player coolPerson1 = new Player(cooperatePlayerBehaviour);
-        Player coolPerson2 = new Player(cooperatePlayerBehaviour);
-        Game game = new Game(coolPerson1,coolPerson2);
-        assertEquals(new Pair<Integer, Integer>(GameConstant.BOTHCOOPERATE,GameConstant.BOTHCOOPERATE),game.getScore(1));
+    @Before
+    public void setUp() throws Exception {
+        player1 = Mockito.mock(Player.class);
+        player2 = Mockito.mock(Player.class);
+        game = new Game(player1, player2);
     }
 
     @Test
-    public void shouldReturnTotalScoreWhenBothPlayersAreCool() {
-        int numOfRounds = 5;
-        Player coolPerson1 = new Player(cooperatePlayerBehaviour);
-        Player coolPerson2 = new Player(cooperatePlayerBehaviour);
-        Game game = new Game(coolPerson1,coolPerson2);
-        assertEquals(new Pair<Integer,Integer>(10,10),game.getScore(numOfRounds));
-        assertEquals(new Pair<Integer,Integer>(10,10),game.getScore(numOfRounds));
-    }
-
-    @Test
-    public void shouldReturnTotalScoreWhenPlayerOneCooperatesAndOtherOneCheat() {
-        int numOfRounds = 5;
-        Player coolPerson1 = new Player(cooperatePlayerBehaviour);
-        Player coolPerson2 = new Player(cheatPlayerBehaviour);
-        Game game = new Game(coolPerson1,coolPerson2);
-        assertEquals(new Pair<Integer,Integer>(-5,15),game.getScore(numOfRounds));
+    public void shouldReturnTotalScoreWhenPlayerOneCooperatesAndOtherOneIsConsolePlayer() throws IOException {
+        int numOfRounds = 2;
+        when(player1.makeMove()).thenReturn(MoveType.COOPERATE).thenReturn(MoveType.CHEAT);
+        when(player2.makeMove()).thenReturn(MoveType.CHEAT).thenReturn(MoveType.COOPERATE);
+        assertEquals(new Pair<Integer, Integer>(2, 2), game.getScore(numOfRounds));
     }
 }

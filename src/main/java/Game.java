@@ -1,5 +1,7 @@
 import com.sun.tools.javac.util.Pair;
 
+import java.io.IOException;
+
 public class Game {
     private Player player1,player2;
     private RuleEngine ruleEngine;
@@ -13,7 +15,7 @@ public class Game {
 
     }
 
-    public Pair<Integer,Integer> getScore(int numOfRounds){
+    public Pair<Integer,Integer> getScore(int numOfRounds) throws IOException {
         this.score = new Score(0,0);
         for(int i=0;i<numOfRounds;i++){
             setPlayerLatestScore(ruleEngine.checkInputs(player1.makeMove(),player2.makeMove()));

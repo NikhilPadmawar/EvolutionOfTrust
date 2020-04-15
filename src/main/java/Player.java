@@ -1,3 +1,4 @@
+import java.io.IOException;
 
 public class Player {
     private PlayerBehaviour playerBehaviour;
@@ -6,12 +7,7 @@ public class Player {
         this.playerBehaviour = playerBehaviour;
     }
 
-    public MoveType makeMove(){
+    public MoveType makeMove() throws IOException {
         return  playerBehaviour.behaviour();
-    }
-
-    //This is only relevant for third type behaviour....how should we restrict for other two behaviours?
-    public void updateMoveType(String moveTypeInput){
-
     }
 }
