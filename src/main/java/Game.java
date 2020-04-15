@@ -17,15 +17,18 @@ public class Game {
 
     public Pair<Integer,Integer> getScore(int numOfRounds) throws IOException {
         this.score = new Score(0,0);
-        for(int i=0;i<numOfRounds;i++){
-            setPlayerLatestScore(ruleEngine.checkInputs(player1.makeMove(),player2.makeMove()));
+        System.out.println("Rounds\tPlayer1\tPLayer2");
+        for(int i=1;i<=numOfRounds;i++){
+            setPlayerLatestScore(ruleEngine.checkInputs(player1.makeMove(),player2.makeMove()),i);
+
         }
         return new Pair<Integer, Integer>(this.score.getScoreForPlayerOne(),this.score.getScoreForPlayerTwo());
     }
 
-    private void setPlayerLatestScore(Pair<Integer,Integer> score)
+    private void setPlayerLatestScore(Pair<Integer,Integer> score, int round)
     {
         this.score.updateScore(score.fst,score.snd);
+        System.out.println(+round + "\t\t"+ score.fst + "\t\t" + score.snd);
     }
 }
 
