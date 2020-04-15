@@ -1,6 +1,6 @@
 public enum MoveType {
-    COOPERATE("CO"),
-    CHEAT("CH");
+
+    CHEAT("CH"),COOPERATE("CO");
 
     private String input;
 
@@ -10,8 +10,10 @@ public enum MoveType {
     }
 
     public static MoveType valueFor(String input) {
-        for (MoveType moveType : MoveType.values()) {
-            return moveType.input.equals(input) ? moveType : null;
+        for(MoveType moveType : MoveType.values()) {
+            if(moveType.input.equals(input)) {
+                return moveType;
+            }
         }
         return null;
     }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="GameITTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-15T17:24:38" hostname="Nikhils-MacBook-Pro.local" time="0.005">
+  <properties/>
+  <testcase name="shouldReturnTotalScoreWhenPlayerOneCooperatesAndSecondOneConsole" classname="GameITTest" time="0.005"/>
+  <system-out><![CDATA[Rounds	Player1	PLayer2
+1		2		2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

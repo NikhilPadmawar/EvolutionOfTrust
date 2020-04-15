@@ -11,7 +11,6 @@ public class RuleEngine {
         else if(user1 == MoveType.CHEAT && user2 == MoveType.CHEAT){
             return new Pair<Integer, Integer>(GameConstant.BOTHCHEAT,GameConstant.BOTHCHEAT);
         }
-
         else if(user1 == MoveType.COOPERATE && user2 == MoveType.CHEAT)
         {
             return new Pair<Integer, Integer>(GameConstant.ONECOOPERATE,GameConstant.ONECHEAT);
