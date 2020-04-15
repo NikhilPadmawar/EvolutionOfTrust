@@ -1,14 +1,17 @@
 
 public class Player {
-    private MoveType moveType;
+    private PlayerBehaviour playerBehaviour;
 
-    public Player(MoveType moveType) {
-        this.moveType = moveType;
+    public Player(PlayerBehaviour playerBehaviour) {
+        this.playerBehaviour = playerBehaviour;
     }
 
     public MoveType makeMove(){
-        return  this.moveType;
+        return  playerBehaviour.behaviour();
     }
 
+    //This is only relevant for third type behaviour....how should we restrict for other two behaviours?
+    public void updateMoveType(String moveTypeInput){
 
+    }
 }
