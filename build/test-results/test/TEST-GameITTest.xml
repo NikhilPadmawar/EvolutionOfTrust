@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameITTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-15T17:24:38" hostname="Nikhils-MacBook-Pro.local" time="0.005">
+<testsuite name="GameITTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-16T05:28:19" hostname="Nikhils-MacBook-Pro.local" time="0.008">
   <properties/>
-  <testcase name="shouldReturnTotalScoreWhenPlayerOneCooperatesAndSecondOneConsole" classname="GameITTest" time="0.005"/>
+  <testcase name="shouldNotifyObserverForOpponentsMove" classname="GameITTest" time="0.008"/>
   <system-out><![CDATA[Rounds	Player1	PLayer2
-1		2		2
+1		3		-1
+2		0		0
+3		0		0
+4		0		0
+5		0		0
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

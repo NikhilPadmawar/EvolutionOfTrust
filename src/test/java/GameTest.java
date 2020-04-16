@@ -29,4 +29,6 @@ public class GameTest {
         when(player2.makeMove()).thenReturn(MoveType.CHEAT).thenReturn(MoveType.COOPERATE);
         assertEquals(new Pair<Integer, Integer>(2, 2), game.getScore(numOfRounds));
     }
+
+
 }

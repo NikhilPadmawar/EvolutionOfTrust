@@ -1,8 +1,9 @@
 import com.sun.tools.javac.util.Pair;
 
 import java.io.IOException;
+import java.util.Observable;
 
-public class Game {
+public class Game extends Observable {
     private Player player1,player2;
     private RuleEngine ruleEngine;
     private Score score;
@@ -19,8 +20,10 @@ public class Game {
         this.score = new Score(0,0);
         System.out.println("Rounds\tPlayer1\tPLayer2");
         for(int i=1;i<=numOfRounds;i++){
-            setPlayerLatestScore(ruleEngine.checkInputs(player1.makeMove(),player2.makeMove()),i);
-
+            MoveType playerOneMoveType = player1.makeMove();
+            setPlayerLatestScore(ruleEngine.checkInputs(playerOneMoveType,player2.makeMove()),i);
+            setChanged();
+            notifyObservers(playerOneMoveType);
         }
         return new Pair<Integer, Integer>(this.score.getScoreForPlayerOne(),this.score.getScoreForPlayerTwo());
     }

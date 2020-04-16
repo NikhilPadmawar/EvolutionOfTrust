@@ -14,6 +14,7 @@ public class GameITTest {
 
     private CooperatePlayerBehaviour cooperatePlayerBehaviour = new CooperatePlayerBehaviour();
     private CheatPlayerBehaviour cheatPlayerBehaviour = new CheatPlayerBehaviour();
+    private CopyCatPlayerBehaviour copyCatPlayerBehaviour = new CopyCatPlayerBehaviour();
 
 
     @Test
@@ -53,5 +54,16 @@ public class GameITTest {
         assertEquals(new Pair<Integer,Integer>(2,2),game.getScore(numOfRounds));
     }
 
+    @Test
+    public void shouldNotifyObserverForOpponentsMove() throws IOException {
+        int numOfRounds = 5;
+        Player coolPlayer = new Player(cheatPlayerBehaviour);
+        Player copyCatPlayer = new Player(copyCatPlayerBehaviour);
+        Game game = new Game(coolPlayer,copyCatPlayer);
+
+        game.addObserver(copyCatPlayerBehaviour);
+
+        assertEquals(new Pair<Integer,Integer>(3,-1),game.getScore(numOfRounds));
+    }
 
 }
